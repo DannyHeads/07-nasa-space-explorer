@@ -29,15 +29,16 @@ body {
   margin-bottom: 20px;
 }
 
+/* Main title */
 h1 {
   font-family: Verdana, sans-serif;
   font-weight: bold;
   color: #0b3d91;
 }
 
-/* Logo */
+/* NASA worm logo */
 .logo {
-  width: 140px;
+  width: 180px;
   margin-right: 15px;
 }
 
@@ -49,6 +50,17 @@ h1 {
   margin-bottom: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+/* NASA blue logo inside fact box */
+.fact-logo {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 .space-fact h2 {
@@ -136,6 +148,7 @@ button:hover {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Hover zoom effect */
 .gallery-item:hover {
   transform: scale(1.03);
   box-shadow: 0 6px 14px rgba(0,0,0,0.2);
@@ -148,6 +161,7 @@ button:hover {
   }
 }
 
+/* Gallery image */
 .gallery-item img {
   width: 100%;
   height: 200px;
@@ -155,18 +169,21 @@ button:hover {
   border-radius: 4px;
 }
 
+/* Gallery title */
 .gallery-item h3 {
   color: #0b3d91;
   font-size: 18px;
   margin-top: 12px;
 }
 
+/* Gallery paragraph */
 .gallery-item p {
   margin-top: 10px;
   padding: 5px;
   font-size: 14px;
 }
 
+/* Gallery date */
 .date {
   color: #555;
   font-weight: bold;
@@ -288,4 +305,31 @@ button:hover {
 .modal-video a {
   color: #0b3d91;
   font-weight: bold;
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+  .site-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .logo {
+    margin-right: 0;
+    width: 160px;
+  }
+
+  .space-fact {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .fact-logo {
+    width: 80px;
+    height: 80px;
+  }
+
+  .modal-video iframe {
+    height: 250px;
+  }
 }

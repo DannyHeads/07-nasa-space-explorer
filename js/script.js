@@ -11,7 +11,7 @@ const closeModal = document.getElementById('closeModal');
 const spaceFact = document.getElementById('spaceFact');
 
 // Put your NASA API key here
-const apiKey = "XYmrWqJoR7g2aI2nhCqmferecV4yxxVgA5mjQggn";
+const apiKey = "PLACE API KEY HERE";
 
 // Call the setupDateInputs function from dateRange.js
 // This sets up the date pickers to:
@@ -179,6 +179,7 @@ function openModal(spaceItem) {
 
 function formatDate(dateString) {
   const date = new Date(dateString + "T00:00:00");
+
   return date.toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
