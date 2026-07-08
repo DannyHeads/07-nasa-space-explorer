@@ -58,6 +58,41 @@ async function getSpaceImages() {
     return;
   }
 
+  const selectedStartDate = new Date(startDate + "T00:00:00");
+  const selectedEndDate = new Date(endDate + "T00:00:00");
+  const currentDate = new Date(today + "T00:00:00");
+  const firstNasaDate = new Date(earliestDate + "T00:00:00");
+
+  if (selectedStartDate > currentDate || selectedEndDate > currentDate) {
+    gallery.innerHTML = `
+      <div class="placeholder">
+        <div class="placeholder-icon">⚠️</div>
+        <p>Please choose a date that is not in the future. NASA does not have APOD images for future dates yet.</p>
+      </div>
+    `;
+    return;
+  }
+
+  if (selectedStartDate < firstNasaDate || selectedEndDate < firstNasaDate) {
+    gallery.innerHTML = `
+      <div class="placeholder">
+        <div class="placeholder-icon">⚠️</div>
+        <p>Please choose a date on or after June 16, 1995. NASA APOD images start on that date.</p>
+      </div>
+    `;
+    return;
+  }
+
+  if (selectedStartDate > selectedEndDate) {
+    gallery.innerHTML = `
+      <div class="placeholder">
+        <div class="placeholder-icon">⚠️</div>
+        <p>Please make sure the start date comes before the end date.</p>
+      </div>
+    `;
+    return;
+  }
+
   gallery.innerHTML = `
     <div class="loading">
       <div class="placeholder-icon">🚀</div>
